@@ -1,0 +1,8 @@
+name: breast-rf
+channels:
+  - defaults
+dependencies:
+  - numpy=1.14.3
+  - pip:
+    - mlflow==1.3.0
+    - scikit-learn==0.22
