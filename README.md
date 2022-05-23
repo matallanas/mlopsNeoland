@@ -40,7 +40,7 @@ Anaconda is a free and open-source distribution of the Python and R languages. I
 4. Install python inside the environment.
 
 ```bash
-> conda install python=3.6
+> conda install python=3.8
 ```
 
 5. Install all the dependencies from the `requirements.txt` file.
@@ -48,6 +48,7 @@ Anaconda is a free and open-source distribution of the Python and R languages. I
 ```bash
 > pip install -r src/requirements.txt
 ```
+>Note that if you have problems try to install first the package libmysqlclient-dev by using the following command: `sudo apt-get install libmysqlclient-dev`
 
 6. Once activated the virtual environment, you only have to run the Jupyter Notebook server.
 
@@ -80,7 +81,7 @@ In order to run the MLFlow server you should follow the next steps:
     * Linux version [here](https://docs.docker.com/install/).
     * MacOS X version [here](https://docs.docker.com/docker-for-mac/).
 
-2. Then the following command in order to start the server
+2. Then the following command in order to start the server. Remember to configure first the `infra.yml` file before executing the 
 
 ```bash
 > docker-compose -f './server/infra.yml' up --build -d
@@ -91,13 +92,15 @@ In order to run the MLFlow server you should follow the next steps:
 > docker-compose -f './server/infra.yml' down
 ```
 
+Finally, export the tracking uri server, `export MLFLOW_TRACKING_URI=http://localhost:5000`
+
 ## MLFlow Tracking demo
 Run ``jupyter notebook`` and execute the notebook ``tracking.ipynb``.
 
 ## MLFlow Projects demo
 The first example uses a public project located in the official MLFlow repository (https://github.com/mlflow/)
 
-``mlflow run https://github.com/mlflow/mlflow-example.git -P alpha=5``
+``mlflow run https://github.com/mlflow/mlflow-example.git -P alpha=5.0``
 
 The second example uses our own project (./src/roject_example)
 
