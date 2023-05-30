@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3.9
 
 EXPOSE 5000
 
@@ -10,7 +10,7 @@ ENV ARTIFACT_URI ${MLFLOW_HOME}/artifactStore
 ENV SERVICE_NAME db
 ENV SERVICE_PORT 3306
 
-RUN pip install mlflow==1.26.0  mysqlclient==1.4.6 
+RUN pip install mlflow==2.3.2  mysqlclient==1.4.6 
 
 RUN mkdir -p /server
 WORKDIR /server
